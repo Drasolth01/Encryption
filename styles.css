@@ -1,4 +1,4 @@
-/* Default (light mode) styles */
+/* Reset and global styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -28,24 +28,6 @@ section {
     padding: 20px;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #121212;
-    color: #f7f7f7;
-}
-
-header.dark-mode, footer.dark-mode {
-    background-color: #1e1e1e;
-}
-
-nav a.dark-mode {
-    color: #bb86fc;
-}
-
-nav a.dark-mode:hover {
-    text-decoration: underline;
-}
-
 /* Calculator styles */
 .calculator-container {
     max-width: 400px;
@@ -54,11 +36,6 @@ nav a.dark-mode:hover {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .calculator-container {
-    background-color: #333;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .calculator-display {
@@ -70,11 +47,6 @@ body.dark-mode .calculator-container {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f7f7f7;
-}
-
-body.dark-mode .calculator-display {
-    background-color: #555;
-    border-color: #777;
 }
 
 .calculator-buttons {
@@ -98,62 +70,12 @@ body.dark-mode .calculator-display {
     background-color: #61dafb;
 }
 
-body.dark-mode .calculator-buttons button {
-    background-color: #444;
-    color: #fff;
-}
-
-body.dark-mode .calculator-buttons button:hover {
-    background-color: #bb86fc;
-}
-
 .calculator-buttons button.operation {
     background-color: #ff8c00;
-}
-
-body.dark-mode .calculator-buttons button.operation {
-    background-color: #f57c00;
 }
 
 .calculator-buttons button.operation:hover {
     background-color: #ffab42;
 }
 
-body.dark-mode .calculator-buttons button.operation:hover {
-    background-color: #ff9800;
-}
-
-.calculator-buttons button.equals {
-    background-color: #28a745;
-}
-
-body.dark-mode .calculator-buttons button.equals {
-    background-color: #2e7d32;
-}
-
-.calculator-buttons button.equals:hover {
-    background-color: #5cd65c;
-}
-
-body.dark-mode .calculator-buttons button.equals:hover {
-    background-color: #66bb6a;
-}
-
-/* Dark mode toggle button */
-.dark-mode-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #444;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-body.dark-mode .dark-mode-toggle {
-    background: #bbb;
-    color: #444;
-}
+.calculator-buttons b

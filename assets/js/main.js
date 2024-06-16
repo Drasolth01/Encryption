@@ -30,7 +30,6 @@
         headerToggle();
       }
     });
-
   });
 
   /**
@@ -221,9 +220,41 @@
       } else {
         navmenulink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+   * Calculator functionality
+   */
+  const display = document.getElementById('display');
+
+  document.querySelectorAll('.calculator-buttons button').forEach(button => {
+    button.addEventListener('click', () => {
+      handleInput(button.getAttribute('data-value'));
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if ((key >= '0' && key <= '9') || key === '/' || key === '*' || key === '-' || key === '+' || key === '.' || key === 'Enter' || key === 'Escape') {
+      handleInput(key === 'Enter' ? '=' : key === 'Escape' ? 'C' : key);
+    }
+  });
+
+  function handleInput(value) {
+    if (value === 'C') {
+      display.value = '';
+    } else if (value === '=') {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'Error';
+      }
+    } else {
+      display.value += value;
+    }
+  }
 
 })();
