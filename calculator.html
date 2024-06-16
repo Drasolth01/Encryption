@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emre Kılıç - Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Emre Kılıç</h1>
+    <nav>
+        <a href="index.html">About Me</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="calculator.html">Calculator</a>
+    </nav>
+</header>
+
+<section id="calculator">
+    <div class="calculator-container">
+        <input type="text" class="calculator-display" id="display" disabled>
+        <div class="calculator-buttons">
+            <button class="number" data-value="7">7</button>
+            <button class="number" data-value="8">8</button>
+            <button class="number" data-value="9">9</button>
+            <button class="operation" data-value="/">/</button>
+            <button class="number" data-value="4">4</button>
+            <button class="number" data-value="5">5</button>
+            <button class="number" data-value="6">6</button>
+            <button class="operation" data-value="*">*</button>
+            <button class="number" data-value="1">1</button>
+            <button class="number" data-value="2">2</button>
+            <button class="number" data-value="3">3</button>
+            <button class="operation" data-value="-">-</button>
+            <button class="number" data-value="0">0</button>
+            <button class="operation" data-value=".">.</button>
+            <button class="operation" data-value="C">C</button>
+            <button class="operation" data-value="+">+</button>
+            <button class="equals" data-value="=">=</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Emre Kılıç</p>
+</footer>
+
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('header').classList.toggle('dark-mode');
+        document.querySelector('footer').classList.toggle('dark-mode');
+        document.querySelectorAll('nav a').forEach(el => el.classList.toggle('dark-mode'));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+        const display = document.getElementById('display');
+        const buttons = document.querySelectorAll('.calculator-buttons button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                handleInput(button.getAttribute('data-value'));
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            const key = event.key;
+            if ((key >= '0' && key <= '9') || key === '/' || key === '*' || key === '-' || key === '+' || key === '.' || key === 'Enter' || key === 'Escape') {
+                handleInput(key === 'Enter' ? '=' : key === 'Escape' ? 'C' : key);
+            }
+        });
+
+        function handleInput(value) {
+            if (value === 'C') {
+                display.value = '';
+            } else if (value === '=') {
+                try {
+                    display.value = eval(display.value);
+                } catch {
+                    display.value = 'Error';
+                }
+            } else {
+                display.value += value;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
