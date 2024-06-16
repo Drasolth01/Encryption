@@ -1,41 +1,36 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+  // Replace with your Formspree endpoint
+  $formspree_url = 'https://formspree.io/f/mqkrrwaw';
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+  // Prepare form data
+  $post_data = http_build_query(array(
+    'name' => $_POST['name'],
+    'email' => $_POST['email'],
+    'subject' => $_POST['subject'],
+    'message' => $_POST['message']
+  ));
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
-
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
-
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
+  // Prepare request options
+  $options = array(
+    'http' => array(
+      'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
+      'method'  => 'POST',
+      'content' => $post_data,
+    ),
   );
-  */
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+  // Create context
+  $context  = stream_context_create($options);
 
-  echo $contact->send();
+  // Send the request and capture the response
+  $result = file_get_contents($formspree_url, false, $context);
+
+  // Check for success
+  if ($result === FALSE) {
+    // Handle error
+    die('Error submitting the form!');
+  } else {
+    // Success response
+    echo 'Form submitted successfully!';
+  }
 ?>
