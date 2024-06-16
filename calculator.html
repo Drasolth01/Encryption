@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Starter Page - iPortfolio Bootstrap Template</title>
+  <title>Calculator - iPortfolio Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,8 +48,6 @@
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
       <h1 class="sitename">Alex Smith</h1>
     </a>
 
@@ -68,23 +66,6 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
-          </ul>
-        </li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -96,43 +77,45 @@
     <!-- Page Title -->
     <div class="page-title" data-aos="fade">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Starter Page</h1>
+        <h1 class="mb-2 mb-lg-0">Calculator</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Starter Page</li>
+            <li class="current">Calculator</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
+    <!-- Calculator Section -->
+    <section id="calculator-section" class="calculator-section section">
 
-      <div class="calculator-container">
-        <input type="text" class="calculator-display" id="display" disabled>
-        <div class="calculator-buttons">
-            <button class="number" data-value="7">7</button>
-            <button class="number" data-value="8">8</button>
-            <button class="number" data-value="9">9</button>
-            <button class="operation" data-value="/">/</button>
-            <button class="number" data-value="4">4</button>
-            <button class="number" data-value="5">5</button>
-            <button class="number" data-value="6">6</button>
-            <button class="operation" data-value="*">*</button>
-            <button class="number" data-value="1">1</button>
-            <button class="number" data-value="2">2</button>
-            <button class="number" data-value="3">3</button>
-            <button class="operation" data-value="-">-</button>
-            <button class="number" data-value="0">0</button>
-            <button class="operation" data-value=".">.</button>
-            <button class="operation" data-value="C">C</button>
-            <button class="operation" data-value="+">+</button>
-            <button class="equals" data-value="=">=</button>
+      <div class="container">
+        <div class="calculator-container">
+          <input type="text" class="calculator-display" id="display" disabled>
+          <div class="calculator-buttons">
+              <button class="number" data-value="7">7</button>
+              <button class="number" data-value="8">8</button>
+              <button class="number" data-value="9">9</button>
+              <button class="operation" data-value="/">/</button>
+              <button class="number" data-value="4">4</button>
+              <button class="number" data-value="5">5</button>
+              <button class="number" data-value="6">6</button>
+              <button class="operation" data-value="*">*</button>
+              <button class="number" data-value="1">1</button>
+              <button class="number" data-value="2">2</button>
+              <button class="number" data-value="3">3</button>
+              <button class="operation" data-value="-">-</button>
+              <button class="number" data-value="0">0</button>
+              <button class="operation" data-value=".">.</button>
+              <button class="operation" data-value="C">C</button>
+              <button class="operation" data-value="+">+</button>
+              <button class="equals" data-value="=">=</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    </section><!-- /Starter Section Section -->
+    </section><!-- End Calculator Section -->
 
   </main>
 
@@ -143,10 +126,6 @@
         <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
@@ -176,6 +155,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+        const display = document.getElementById('display');
         document.addEventListener('keydown', (event) => {
             const key = event.key;
             if ((key >= '0' && key <= '9') || key === '/' || key === '*' || key === '-' || key === '+' || key === '.' || key === 'Enter' || key === 'Escape') {
@@ -196,9 +176,4 @@
                 display.value += value;
             }
         }
-    });
-</script>
-
-</body>
-
-</html>
+   
