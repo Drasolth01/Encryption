@@ -721,31 +721,19 @@
         </div>
       </div>
       <div class="col-lg-7">
-        <form id="contact-form" action="https://formspree.io/f/mleqqvnr" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-            <div class="col-md-6">
-              <label for="name-field" class="pb-2">Your Name</label>
-              <input type="text" name="name" id="name-field" class="form-control" required="">
-            </div>
-            <div class="col-md-6">
-              <label for="email-field" class="pb-2">Your Email</label>
-              <input type="email" class="form-control" name="email" id="email-field" required="">
-            </div>
-            <div class="col-md-12">
-              <label for="subject-field" class="pb-2">Subject</label>
-              <input type="text" class="form-control" name="subject" id="subject-field" required="">
-            </div>
-            <div class="col-md-12">
-              <label for="message-field" class="pb-2">Message</label>
-              <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-            </div>
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-              <button type="submit">Send Message</button>
-            </div>
-          </div>
+        <form id="contact-form" action="https://formspree.io/f/mleqqvnr" method="POST" class="php-email-form">
+          <label>
+            Your email:
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            Your message:
+            <textarea name="message" required></textarea>
+          </label>
+          <div class="loading" style="display: none;">Loading...</div>
+          <div class="error-message" style="display: none;">Oops! There was a problem submitting your form.</div>
+          <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+          <button type="submit">Send</button>
         </form>
       </div><!-- End Contact Form -->
     </div>
@@ -777,16 +765,13 @@
       if (data.ok) {
         sentMessage.style.display = 'block';
         form.reset();
-        if (data.next) {
-          window.location.href = data.next;
-        }
       } else {
-        errorMessage.textContent = 'Oops! There was a problem submitting your form';
+        errorMessage.textContent = 'Oops! There was a problem submitting your form.';
         errorMessage.style.display = 'block';
       }
     }).catch(() => {
       loading.style.display = 'none';
-      errorMessage.textContent = 'Oops! There was a problem submitting your form';
+      errorMessage.textContent = 'Oops! There was a problem submitting your form.';
       errorMessage.style.display = 'block';
     });
   });
