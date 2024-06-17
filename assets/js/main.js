@@ -278,9 +278,6 @@
           if (data.ok) {
             sentMessage.style.display = 'block';
             form.reset();
-            if (data.next) {
-              window.location.href = data.next;
-            }
           } else {
             errorMessage.textContent = 'Oops! There was a problem submitting your form';
             errorMessage.style.display = 'block';
