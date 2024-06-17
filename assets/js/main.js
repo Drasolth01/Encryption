@@ -271,20 +271,14 @@
       headers: {
         'Accept': 'application/json'
       }
-    }).then(response => {
+    }).then(response => response.json()).then(data => {
       loading.style.display = 'none';
-      if (response.ok) {
-        return response.json().then(data => {
-          if (data.ok) {
-            sentMessage.style.display = 'block';
-            form.reset();
-          } else {
-            errorMessage.textContent = 'Oops! There was a problem submitting your form';
-            errorMessage.style.display = 'block';
-          }
-        });
+      if (data.ok) {
+        sentMessage.style.display = 'block';
+        form.reset();
       } else {
-        throw new Error('Network response was not ok.');
+        errorMessage.textContent = 'Oops! There was a problem submitting your form';
+        errorMessage.style.display = 'block';
       }
     }).catch(error => {
       loading.style.display = 'none';
