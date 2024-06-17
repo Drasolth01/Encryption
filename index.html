@@ -683,7 +683,7 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Contact Section -->
+
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
@@ -791,23 +791,14 @@
       headers: {
         'Accept': 'application/json'
       }
-    }).then(response => {
+    }).then(response => response.json()).then(data => {
       loading.style.display = 'none';
-      if (response.ok) {
+      if (data.ok) {
         sentMessage.style.display = 'block';
         form.reset();
       } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            errorMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
-          } else {
-            errorMessage.textContent = 'Oops! There was a problem submitting your form';
-          }
-          errorMessage.style.display = 'block';
-        }).catch(() => {
-          errorMessage.textContent = 'Oops! There was a problem submitting your form';
-          errorMessage.style.display = 'block';
-        });
+        errorMessage.textContent = 'Oops! There was a problem submitting your form';
+        errorMessage.style.display = 'block';
       }
     }).catch(() => {
       loading.style.display = 'none';
@@ -815,7 +806,7 @@
       errorMessage.style.display = 'block';
     });
   });
-</script><!-- /Contact Section -->
+</script> <!-- /Contact Section -->
 
   </main>
 
