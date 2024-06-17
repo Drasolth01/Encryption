@@ -271,8 +271,12 @@
       headers: {
         'Accept': 'application/json'
       }
-    }).then(response => response.json()).then(data => {
+    }).then(response => {
       loading.style.display = 'none';
+      console.log(response);  // Log the raw response
+      return response.json();
+    }).then(data => {
+      console.log(data);  // Log the parsed response data
       if (data.ok) {
         sentMessage.style.display = 'block';
         form.reset();
@@ -281,6 +285,7 @@
         errorMessage.style.display = 'block';
       }
     }).catch(error => {
+      console.error('Error:', error);  // Log any errors encountered
       loading.style.display = 'none';
       errorMessage.textContent = 'Oops! There was a problem submitting your form';
       errorMessage.style.display = 'block';
